@@ -32,9 +32,14 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
                     print(business.address!)
                 }
             }
-            
             }
         )
+        
+        // Create search bar programmatically
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        navigationItem.titleView = searchBar
         
         /* Example of Yelp search with more search options specified
          Business.searchWithTerm("Restaurants", sort: .distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: Error!) -> Void in
