@@ -46,12 +46,13 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         searchController.searchBar.becomeFirstResponder()
         
         navigationItem.titleView = searchController.searchBar
-        
+     
         Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
         })
-
+ 
+    
         
         /* Example of Yelp search with more search options specified
          Business.searchWithTerm("Restaurants", sort: .distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: Error!) -> Void in
