@@ -71,12 +71,6 @@
                                                     <color key="textColor" red="0.38949763018467709" green="0.38949763018467709" blue="0.38949763018467709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26z-hp-joA">
-                                                    <rect key="frame" x="295" y="29" width="17" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.38949763018467709" green="0.38949763018467709" blue="0.38949763018467709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0.07 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yo8-f4-uCE">
                                                     <rect key="frame" x="267" y="8" width="45" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -85,7 +79,6 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="26z-hp-joA" secondAttribute="trailing" constant="8" id="96I-ef-BvT"/>
                                                 <constraint firstItem="XAt-TR-qCZ" firstAttribute="leading" secondItem="wl0-Z2-SVG" secondAttribute="leading" id="9NO-B7-LJX"/>
                                                 <constraint firstItem="gcX-n6-xWy" firstAttribute="top" secondItem="LLA-OB-Ps5" secondAttribute="bottom" constant="5" id="E0s-Kd-ykz"/>
                                                 <constraint firstItem="wl0-Z2-SVG" firstAttribute="top" secondItem="gcX-n6-xWy" secondAttribute="bottom" constant="5" id="GRN-zI-GGw"/>
@@ -95,7 +88,6 @@
                                                 <constraint firstItem="wl0-Z2-SVG" firstAttribute="leading" secondItem="W4G-bt-JAS" secondAttribute="trailing" constant="8" id="OvR-G6-XcX"/>
                                                 <constraint firstItem="W4G-bt-JAS" firstAttribute="leading" secondItem="Gph-iR-AUg" secondAttribute="leading" constant="8" id="TEU-Y9-DHM"/>
                                                 <constraint firstItem="Yo8-f4-uCE" firstAttribute="top" secondItem="Gph-iR-AUg" secondAttribute="firstBaseline" constant="8" id="UQC-CG-Nso"/>
-                                                <constraint firstItem="26z-hp-joA" firstAttribute="top" secondItem="Yo8-f4-uCE" secondAttribute="bottom" constant="5" id="UU9-wU-Xup"/>
                                                 <constraint firstItem="wl0-Z2-SVG" firstAttribute="leading" secondItem="LLA-OB-Ps5" secondAttribute="leading" id="YcB-39-zGp"/>
                                                 <constraint firstItem="LLA-OB-Ps5" firstAttribute="top" secondItem="Gph-iR-AUg" secondAttribute="firstBaseline" constant="7" id="cRj-wt-OrM"/>
                                                 <constraint firstItem="XAt-TR-qCZ" firstAttribute="top" secondItem="wl0-Z2-SVG" secondAttribute="bottom" constant="2" id="deR-38-Kmb"/>
@@ -120,12 +112,12 @@
                                             <outlet property="ratingImageView" destination="gcX-n6-xWy" id="HTd-3k-YD8"/>
                                             <outlet property="reviewsCountLabel" destination="O8E-UC-HOQ" id="NJb-Va-4SU"/>
                                             <outlet property="thumbImageView" destination="W4G-bt-JAS" id="XFG-PH-9cI"/>
+                                            <segue destination="Sce-QU-GvG" kind="show" identifier="toMap" id="R8e-0L-y2u"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8xN-YK-GAY" secondAttribute="trailing" id="4aB-nd-ds8"/>
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="8xN-YK-GAY" secondAttribute="bottom" id="4w7-Qh-iyo"/>
@@ -141,6 +133,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2184.375" y="357.04225352112678"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="nkE-Fy-lAa">
+            <objects>
+                <viewController id="Sce-QU-GvG" customClass="MapViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tre-fl-SoM"/>
+                        <viewControllerLayoutGuide type="bottom" id="utu-gb-4tm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3sA-IU-p6U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFV-pV-0rj">
+                                <rect key="frame" x="0.0" y="206" width="320" height="362"/>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-uU-1rO">
+                                <rect key="frame" x="8" y="72" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="MDg-Pr-OY0"/>
+                                    <constraint firstAttribute="height" constant="100" id="WcP-w0-I5A"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Pu Bah" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-e0-pZH">
+                                <rect key="frame" x="116" y="72" width="196" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="469 Reviews" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-5X-qm0">
+                                <rect key="frame" x="203" y="102" width="109" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.3894976302" green="0.3894976302" blue="0.3894976302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai, Seafood, Salad" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHi-t3-PsD">
+                                <rect key="frame" x="116" y="126" width="196" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.3894976302" green="0.3894976302" blue="0.3894976302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="777-yg-2Ti">
+                                <rect key="frame" x="116" y="102" width="83" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="qa1-gG-OoE"/>
+                                    <constraint firstAttribute="width" constant="83" id="zZW-4p-zVV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="901 Larkin St, Lower Nob Hill" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjW-z8-T7U">
+                                <rect key="frame" x="8" y="180" width="304" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vVw-5X-qm0" firstAttribute="top" secondItem="RuB-e0-pZH" secondAttribute="bottom" constant="8" id="4Bx-ws-bHc"/>
+                            <constraint firstItem="QHi-t3-PsD" firstAttribute="top" secondItem="vVw-5X-qm0" secondAttribute="bottom" constant="8" id="8j7-GH-feI"/>
+                            <constraint firstItem="hNC-uU-1rO" firstAttribute="leading" secondItem="3sA-IU-p6U" secondAttribute="leading" constant="8" id="92L-XI-lTH"/>
+                            <constraint firstItem="vVw-5X-qm0" firstAttribute="leading" secondItem="777-yg-2Ti" secondAttribute="trailing" constant="4" id="AEB-Q2-ygn"/>
+                            <constraint firstItem="hNC-uU-1rO" firstAttribute="top" secondItem="Tre-fl-SoM" secondAttribute="bottom" constant="8" id="FLC-QU-s0d"/>
+                            <constraint firstItem="777-yg-2Ti" firstAttribute="leading" secondItem="hNC-uU-1rO" secondAttribute="trailing" constant="8" id="GYk-Qw-ovD"/>
+                            <constraint firstItem="777-yg-2Ti" firstAttribute="top" secondItem="RuB-e0-pZH" secondAttribute="bottom" constant="8" id="MIX-S5-h9v"/>
+                            <constraint firstAttribute="trailing" secondItem="RuB-e0-pZH" secondAttribute="trailing" constant="8" id="Z2V-Vl-WjU"/>
+                            <constraint firstAttribute="trailing" secondItem="QHi-t3-PsD" secondAttribute="trailing" constant="8" id="aIC-oU-hIq"/>
+                            <constraint firstAttribute="trailing" secondItem="vVw-5X-qm0" secondAttribute="trailing" constant="8" id="beh-yn-7Zd"/>
+                            <constraint firstItem="RuB-e0-pZH" firstAttribute="leading" secondItem="hNC-uU-1rO" secondAttribute="trailing" constant="8" id="gkl-as-G5l"/>
+                            <constraint firstAttribute="trailing" secondItem="EFV-pV-0rj" secondAttribute="trailing" id="h2b-Lt-IW3"/>
+                            <constraint firstItem="QHi-t3-PsD" firstAttribute="leading" secondItem="RuB-e0-pZH" secondAttribute="leading" id="lrx-Ah-70X"/>
+                            <constraint firstItem="RuB-e0-pZH" firstAttribute="top" secondItem="Tre-fl-SoM" secondAttribute="bottom" constant="8" id="lyj-ez-gdl"/>
+                            <constraint firstItem="EFV-pV-0rj" firstAttribute="leading" secondItem="3sA-IU-p6U" secondAttribute="leading" id="m6M-qb-U9q"/>
+                            <constraint firstItem="utu-gb-4tm" firstAttribute="top" secondItem="EFV-pV-0rj" secondAttribute="bottom" id="oFn-TO-7RD"/>
+                            <constraint firstItem="RjW-z8-T7U" firstAttribute="leading" secondItem="3sA-IU-p6U" secondAttribute="leading" constant="8" id="p5X-yO-JrU"/>
+                            <constraint firstItem="RjW-z8-T7U" firstAttribute="top" secondItem="hNC-uU-1rO" secondAttribute="bottom" constant="8" id="qN0-5x-nkF"/>
+                            <constraint firstItem="EFV-pV-0rj" firstAttribute="top" secondItem="RjW-z8-T7U" secondAttribute="bottom" constant="8" id="rUd-Vz-rTR"/>
+                            <constraint firstItem="QHi-t3-PsD" firstAttribute="leading" secondItem="hNC-uU-1rO" secondAttribute="trailing" constant="8" id="sTI-NZ-MqP"/>
+                            <constraint firstItem="EFV-pV-0rj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hNC-uU-1rO" secondAttribute="bottom" constant="8" id="skd-23-Rc6"/>
+                            <constraint firstAttribute="trailing" secondItem="RjW-z8-T7U" secondAttribute="trailing" constant="8" id="tb8-Om-xRa"/>
+                            <constraint firstItem="777-yg-2Ti" firstAttribute="leading" secondItem="RuB-e0-pZH" secondAttribute="leading" id="yco-p7-qyf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="RjW-z8-T7U" id="wJf-LC-H2K"/>
+                        <outlet property="categoriesLabel" destination="QHi-t3-PsD" id="kgc-Ob-JG3"/>
+                        <outlet property="mapView" destination="EFV-pV-0rj" id="ilO-bz-bhU"/>
+                        <outlet property="nameLabel" destination="RuB-e0-pZH" id="G1H-tl-Uus"/>
+                        <outlet property="ratingImageView" destination="777-yg-2Ti" id="cFK-DB-GKt"/>
+                        <outlet property="reviewsCountLabel" destination="vVw-5X-qm0" id="tiH-Mp-lp9"/>
+                        <outlet property="thumbImageView" destination="hNC-uU-1rO" id="Qyb-2f-Zux"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aqq-61-3qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3013.125" y="357.04225352112678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6by-YR-PCM">
